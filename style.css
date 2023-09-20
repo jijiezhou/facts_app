@@ -80,6 +80,7 @@ ul {
   padding-top: 3px;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 100px;
 }
 
 .vote-buttons {
@@ -116,6 +117,8 @@ ul {
   );
   color: inherit;
   transition: 0.3s;
+  border-radius: 100px;
+  cursor: pointer;
 }
 
 .btn:hover {
