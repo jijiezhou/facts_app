@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-18 21:44:53
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-19 21:10:30
+ * @LastEditTime: 2023-09-19 22:16:30
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@
           />
           <h1>Today I learned</h1>
         </div>
-        <button>Share a fact</button>
+        <button class="btn btn-large">Share a fact</button>
       </header>
 
       <form class="fact-form">
@@ -46,15 +46,31 @@
           <option value="science">Science</option>
           <option value="finance">Finance</option>
         </select>
-        <button>POST</button>
+        <button class="btn btn-large">POST</button>
       </form>
 
       <main class="main">
         <aside>
           <ul>
-            <li><button>All</button></li>
-            <li><button>Technology</button></li>
-            <li><button>Science</button></li>
+            <li class="category">
+              <button class="btn btn-all-categories">All</button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #3b82f6"
+              >
+                Technology
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #16a34a"
+              >
+                Science
+              </button>
+            </li>
           </ul>
         </aside>
 
