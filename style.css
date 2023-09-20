@@ -17,6 +17,7 @@ body {
   color: #f5f5f4;
   font-family: "Sono", sans-serif;
   padding: 48px 64px;
+  font-weight: 400;
 }
 
 ul {
@@ -85,6 +86,26 @@ ul {
 
 .vote-buttons {
   margin-left: auto;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.vote-buttons button {
+  background-color: #78716c;
+  border: none;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vote-buttons button:hover {
+  background-color: #292524;
 }
 
 .source:link,
