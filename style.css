@@ -44,6 +44,10 @@ body {
   background-color: #44403c;
   margin-bottom: 16px;
   padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  letter-spacing: -1px;
 }
 
 .tag {
@@ -53,6 +57,10 @@ body {
   padding-top: 3px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.vote-buttons {
+  margin-left: auto;
 }
 
 ul {
