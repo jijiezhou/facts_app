@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-20 10:31:53
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-20 23:49:44
+ * @LastEditTime: 2023-09-21 13:47:04
  */
 
 const initialFacts = [
@@ -48,7 +48,24 @@ const factsList = document.querySelector(".facts-list");
 
 //Create DOM elements: Render facts in list
 factsList.innerHTML = "";
-createFactsList(initialFacts);
+loadFact();
+
+//load data from supabase
+async function loadFact() {
+  const res = await fetch(
+    "https://iinkutnyzekitylfaizd.supabase.co/rest/v1/facts",
+    {
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlpbmt1dG55emVraXR5bGZhaXpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTUxODgwNTYsImV4cCI6MjAxMDc2NDA1Nn0._tY7IEO2mL9RUyokGRZDwa6DN8mZBZ-CWssuXmz9Zf8",
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlpbmt1dG55emVraXR5bGZhaXpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTUxODgwNTYsImV4cCI6MjAxMDc2NDA1Nn0._tY7IEO2mL9RUyokGRZDwa6DN8mZBZ-CWssuXmz9Zf8",
+      },
+    }
+  );
+  const data = await res.json();
+  createFactsList(data);
+}
 
 function createFactsList(dataArray) {
   const htmlArr = dataArray.map(
