@@ -4,9 +4,8 @@
  * @Author: ZJJ
  * @Date: 2023-09-20 10:31:53
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-20 10:45:01
+ * @LastEditTime: 2023-09-20 22:51:14
  */
-console.log("hello world");
 
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
