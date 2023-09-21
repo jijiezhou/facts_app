@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-20 10:31:53
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-20 22:57:43
+ * @LastEditTime: 2023-09-20 23:05:29
  */
 
 const btn = document.querySelector(".btn-open");
@@ -20,3 +20,6 @@ btn.addEventListener("click", () => {
     btn.textContent = "Share a fact";
   }
 });
+
+const fact = ["Lisbon is the capital of Portugal", 2015, true];
+const [text, createdIn, isCorrect] = fact;
