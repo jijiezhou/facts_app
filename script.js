@@ -4,11 +4,13 @@
  * @Author: ZJJ
  * @Date: 2023-09-20 10:31:53
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-20 23:23:35
+ * @LastEditTime: 2023-09-20 23:37:25
  */
 
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
+const factsList = document.querySelector(".facts-list");
+factsList.innerHTML = "";
 
 btn.addEventListener("click", () => {
   //console.log(form.classList);
