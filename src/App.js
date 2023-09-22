@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 13:15:37
+ * @LastEditTime: 2023-09-22 13:28:06
  */
 import { useState } from "react";
 import "./style.css";
@@ -59,30 +59,32 @@ function Counter() {
   );
 }
 
+function Header({ showForm, setShowForm }) {
+  const appTitle = "Today I learned";
+
+  return (
+    <header className="header">
+      <div className="logo">
+        <img src="logo.png" height="68" width="68" alt="Today I learned logo" />
+        <h1>{appTitle}</h1>
+      </div>
+      <button
+        className="btn btn-large btn-open"
+        onClick={() => setShowForm((show) => !show)}
+      >
+        {!showForm ? "Share a fact" : "Close"}
+      </button>
+    </header>
+  );
+}
+
 function App() {
   const [showForm, setShowForm] = useState(false);
 
-  const appTitle = "Today I learned";
   return (
     <>
       {/* HEADER */}
-      <header className="header">
-        <div className="logo">
-          <img
-            src="logo.png"
-            height="68"
-            width="68"
-            alt="Today I learned logo"
-          />
-          <h1>{appTitle}</h1>
-        </div>
-        <button
-          className="btn btn-large btn-open"
-          onClick={() => setShowForm((show) => !show)}
-        >
-          Share a fact
-        </button>
-      </header>
+      <Header showForm={showForm} setShowForm={setShowForm} />
 
       {showForm ? <NewFactForm /> : null}
       <main className="main">
