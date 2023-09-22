@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 11:01:02
+ * @LastEditTime: 2023-09-22 13:15:37
  */
 import { useState } from "react";
 import "./style.css";
@@ -60,6 +60,8 @@ function Counter() {
 }
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
   const appTitle = "Today I learned";
   return (
     <>
@@ -74,11 +76,15 @@ function App() {
           />
           <h1>{appTitle}</h1>
         </div>
-        <button className="btn btn-large btn-open">Share a fact</button>
+        <button
+          className="btn btn-large btn-open"
+          onClick={() => setShowForm((show) => !show)}
+        >
+          Share a fact
+        </button>
       </header>
-      <Counter />
-      <NewFactForm />
 
+      {showForm ? <NewFactForm /> : null}
       <main className="main">
         <CategoryFilter />
         <FactList />
