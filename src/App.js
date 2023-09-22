@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 13:56:48
+ * @LastEditTime: 2023-09-22 19:50:22
  */
 import { useState } from "react";
 import "./style.css";
@@ -106,6 +106,18 @@ const CATEGORIES = [
   { name: "news", color: "#8b5cf6" },
 ];
 
+function isValidHttpUrl(string) {
+  let url;
+
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+
+  return url.protocol === "http:" || url.protocol === "https:";
+}
+
 function NewFactForm() {
   const [text, setText] = useState("");
   const [source, setSource] = useState("");
@@ -113,8 +125,24 @@ function NewFactForm() {
   const textLength = text.length;
 
   function handleSubmit(e) {
+    //1. Prevent browser reload
     e.preventDefault();
-    console.log(text, source, category);
+    //console.log(text, source, category);
+
+    //2. Check if data is valid. If so, create a new fact
+    if (text && isValidHttpUrl(source) && category && textLength <= 200) {
+      //3. Create a new fact object
+      const newFact = {
+        id: Math.round(Math.random() * 100000000),
+        text,
+        source,
+        category,
+        votesInteresting: 0,
+        votesMindblowing: 0,
+        votesFalse: 0,
+        createdIn: new Date().getUTCFullYear(),
+      };
+    }
   }
 
   return (
