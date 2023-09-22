@@ -4,8 +4,9 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 10:49:12
+ * @LastEditTime: 2023-09-22 11:01:02
  */
+import { useState } from "react";
 import "./style.css";
 
 const initialFacts = [
@@ -42,6 +43,22 @@ const initialFacts = [
   },
 ];
 
+function Counter() {
+  let [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <span style={{ fontSize: "40px" }}>{count}</span>
+      <button
+        className="btn btn-large"
+        onClick={() => setCount((count) => count + 1)}
+      >
+        +1
+      </button>
+    </div>
+  );
+}
+
 function App() {
   const appTitle = "Today I learned";
   return (
@@ -59,7 +76,7 @@ function App() {
         </div>
         <button className="btn btn-large btn-open">Share a fact</button>
       </header>
-
+      <Counter />
       <NewFactForm />
 
       <main className="main">
