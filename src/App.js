@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 10:26:59
+ * @LastEditTime: 2023-09-22 10:41:01
  */
 import "./style.css";
 
@@ -97,32 +97,42 @@ function FactList() {
     <section>
       <ul className="fact-list">
         {facts.map((fact) => (
-          <li key={fact.id} className="fact">
-            <p>
-              {fact.text}
-              <a className="source" href={fact.source}>
-                (Source)
-              </a>
-            </p>
-            <span
-              className="tag"
-              style={{
-                backgroundColor: CATEGORIES.find(
-                  (cat) => cat.name === fact.category
-                ).color,
-              }}
-            >
-              {fact.category}
-            </span>
-            <div className="vote-buttons">
-              <button>👍 {facts.votesInteresting}</button>
-              <button>🤯 {facts.votesMindblowing}</button>
-              <button>⛔️ {facts.votesFalse}</button>
-            </div>
-          </li>
+          <Fact key={fact.id} fact={fact} />
         ))}
       </ul>
+      <p>There are {facts.length} facts in the database. Add your own!</p>
     </section>
+  );
+}
+/*
+function Fact(props) {
+  //onsole.log(props);
+  const { factObj } = props; //const factObj = props.factObj*/
+
+function Fact({ fact }) {
+  return (
+    <li className="fact">
+      <p>
+        {fact.text}
+        <a className="source" href={fact.source}>
+          (Source)
+        </a>
+      </p>
+      <span
+        className="tag"
+        style={{
+          backgroundColor: CATEGORIES.find((cat) => cat.name === fact.category)
+            .color,
+        }}
+      >
+        {fact.category}
+      </span>
+      <div className="vote-buttons">
+        <button>👍 {fact.votesInteresting}</button>
+        <button>🤯 {fact.votesMindblowing}</button>
+        <button>⛔️ {fact.votesFalse}</button>
+      </div>
+    </li>
   );
 }
 
