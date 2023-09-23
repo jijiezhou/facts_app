@@ -4,10 +4,12 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 20:11:38
+ * @LastEditTime: 2023-09-22 21:01:06
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
+import supabase from "./supabase";
+import React from "react";
 
 const initialFacts = [
   {
@@ -22,7 +24,8 @@ const initialFacts = [
   },
   {
     id: 2,
-    text: "Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%",
+    text:
+      "Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%",
     source:
       "https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids",
     category: "society",
@@ -80,7 +83,16 @@ function Header({ showForm, setShowForm }) {
 
 function App() {
   const [showForm, setShowForm] = useState(false);
-  const [facts, setFacts] = useState(initialFacts);
+  const [facts, setFacts] = useState([]);
+
+  //Only Once
+  useEffect(function() {
+    async function getFacts() {
+      let { data: facts, error } = await supabase.from("facts").select("*");
+      setFacts(facts);
+    }
+    getFacts();
+  }, []);
 
   return (
     <>
