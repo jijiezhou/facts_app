@@ -48,6 +48,14 @@ ul {
   justify-content: space-between;
 }
 
+.message {
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
 .fact {
   font-size: 20px;
   line-height: 1.4;

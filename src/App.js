@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 21:01:06
+ * @LastEditTime: 2023-09-22 21:20:16
  */
 import { useEffect, useState } from "react";
 import "./style.css";
@@ -81,15 +81,27 @@ function Header({ showForm, setShowForm }) {
   );
 }
 
+function Loader() {
+  return <p className="message">loading...</p>;
+}
+
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [facts, setFacts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   //Only Once
   useEffect(function() {
     async function getFacts() {
-      let { data: facts, error } = await supabase.from("facts").select("*");
-      setFacts(facts);
+      setIsLoading(true);
+      let { data: facts, error } = await supabase
+        .from("facts")
+        .select("*")
+        .order("votesInteresting", { ascending: false })
+        .limit(1000);
+      if (!error) setFacts(facts);
+      else alert("There was a problem getting data");
+      setIsLoading(false);
     }
     getFacts();
   }, []);
@@ -104,7 +116,7 @@ function App() {
       ) : null}
       <main className="main">
         <CategoryFilter />
-        <FactList facts={facts} />
+        {isLoading ? <Loader /> : <FactList facts={facts} />}
       </main>
     </>
   );
