@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 19:50:22
+ * @LastEditTime: 2023-09-22 20:11:38
  */
 import { useState } from "react";
 import "./style.css";
@@ -80,16 +80,19 @@ function Header({ showForm, setShowForm }) {
 
 function App() {
   const [showForm, setShowForm] = useState(false);
+  const [facts, setFacts] = useState(initialFacts);
 
   return (
     <>
       {/* HEADER */}
       <Header showForm={showForm} setShowForm={setShowForm} />
 
-      {showForm ? <NewFactForm /> : null}
+      {showForm ? (
+        <NewFactForm setFacts={setFacts} setShowForm={setShowForm} />
+      ) : null}
       <main className="main">
         <CategoryFilter />
-        <FactList />
+        <FactList facts={facts} />
       </main>
     </>
   );
@@ -118,7 +121,7 @@ function isValidHttpUrl(string) {
   return url.protocol === "http:" || url.protocol === "https:";
 }
 
-function NewFactForm() {
+function NewFactForm({ setFacts, setShowForm }) {
   const [text, setText] = useState("");
   const [source, setSource] = useState("");
   const [category, setCategory] = useState("");
@@ -140,8 +143,19 @@ function NewFactForm() {
         votesInteresting: 0,
         votesMindblowing: 0,
         votesFalse: 0,
-        createdIn: new Date().getUTCFullYear(),
+        createdIn: new Date().getFullYear(),
       };
+
+      //4.Add the new fact to the UI: add the fact to the state
+      setFacts((facts) => [newFact, ...facts]);
+
+      //5. Reset input fields
+      setText("");
+      setSource("");
+      setCategory("");
+
+      //6. Close the form
+      setShowForm(false);
     }
   }
 
@@ -196,10 +210,7 @@ function CategoryFilter() {
   );
 }
 
-function FactList() {
-  //TEMPORARY
-  const facts = initialFacts;
-
+function FactList({ facts }) {
   return (
     <section>
       <ul className="fact-list">
