@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-22 22:36:53
+ * @LastEditTime: 2023-10-12 23:09:16
  */
 import { useEffect, useState } from "react";
 import "./style.css";
@@ -25,8 +25,7 @@ const initialFacts = [
   },
   {
     id: 2,
-    text:
-      "Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%",
+    text: "Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%",
     source:
       "https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids",
     category: "society",
@@ -94,7 +93,7 @@ function App() {
 
   //Only Once
   useEffect(
-    function() {
+    function () {
       async function getFacts() {
         setIsLoading(true);
 
@@ -294,6 +293,7 @@ function Fact(props) {
   //onsole.log(props);
   const { factObj } = props; //const factObj = props.factObj*/
 
+//test
 function Fact({ fact, setFacts }) {
   const [isUpdating, setIsUpdating] = useState(false);
 
