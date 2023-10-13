@@ -292,8 +292,6 @@ function FactList({ facts, setFacts }) {
 function Fact(props) {
   //onsole.log(props);
   const { factObj } = props; //const factObj = props.factObj*/
-
-//test
 function Fact({ fact, setFacts }) {
   const [isUpdating, setIsUpdating] = useState(false);
 
