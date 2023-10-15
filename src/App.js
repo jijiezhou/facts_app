@@ -295,7 +295,6 @@ function Fact(props) {
 function Fact({ fact, setFacts }) {
   const [isUpdating, setIsUpdating] = useState(false);
 
-  //test
   async function handleVote(columnName) {
     setIsUpdating(true);
     const { data: updateFact, error } = await supabase
