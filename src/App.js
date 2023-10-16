@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-14 23:14:45
+ * @LastEditTime: 2023-10-15 23:47:29
  */
 import { useEffect, useState } from "react";
 import "./style.css";
@@ -310,6 +310,7 @@ function Fact({ fact, setFacts }) {
       );
   }
 
+  //test
   return (
     <li className="fact">
       <p>
