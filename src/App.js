@@ -310,7 +310,6 @@ function Fact({ fact, setFacts }) {
       );
   }
 
-  //dsfad
   return (
     <li className="fact">
       <p>
