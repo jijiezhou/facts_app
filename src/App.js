@@ -310,7 +310,6 @@ function Fact({ fact, setFacts }) {
       );
   }
 
-  //test
   return (
     <li className="fact">
       <p>
