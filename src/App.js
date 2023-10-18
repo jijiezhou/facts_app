@@ -347,5 +347,5 @@ function Fact({ fact, setFacts }) {
     </li>
   );
 }
-//test
+
 export default App;
