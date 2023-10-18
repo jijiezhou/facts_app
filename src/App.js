@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-16 23:04:33
+ * @LastEditTime: 2023-10-17 23:43:05
  */
 import { useEffect, useState } from "react";
 import "./style.css";
@@ -347,5 +347,5 @@ function Fact({ fact, setFacts }) {
     </li>
   );
 }
-
+//test
 export default App;
