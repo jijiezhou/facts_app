@@ -303,7 +303,7 @@ function Fact({ fact, setFacts }) {
       .eq("id", fact.id)
       .select();
     setIsUpdating(false);
-    //test
+
     if (!error)
       setFacts((facts) =>
         facts.map((f) => (f.id === fact.id ? updateFact[0] : f))
