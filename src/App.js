@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-17 23:43:05
+ * @LastEditTime: 2023-10-18 23:50:06
  */
 import { useEffect, useState } from "react";
 import "./style.css";
@@ -309,7 +309,7 @@ function Fact({ fact, setFacts }) {
         facts.map((f) => (f.id === fact.id ? updateFact[0] : f))
       );
   }
-
+  //test
   return (
     <li className="fact">
       <p>
