@@ -309,7 +309,7 @@ function Fact({ fact, setFacts }) {
         facts.map((f) => (f.id === fact.id ? updateFact[0] : f))
       );
   }
-  //test
+
   return (
     <li className="fact">
       <p>
