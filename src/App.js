@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-21 22:22:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-26 20:33:02
+ * @LastEditTime: 2023-10-27 21:14:43
  */
 import { useEffect, useState } from "react";
 import "./style.css";
@@ -294,7 +294,7 @@ function Fact(props) {
   const { factObj } = props; //const factObj = props.factObj*/
 function Fact({ fact, setFacts }) {
   const [isUpdating, setIsUpdating] = useState(false);
-
+  //test
   async function handleVote(columnName) {
     setIsUpdating(true);
     const { data: updateFact, error } = await supabase
